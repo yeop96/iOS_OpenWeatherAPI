@@ -24,7 +24,14 @@ class WeatherViewController: UIViewController {
         title = "도시별 현재 날씨"
         view.addSubview(tableView)
         
-        
+        cities.forEach {
+            APIService.shared.requestGetPost(cityName: $0) { weatherData in
+                guard let weatherData = weatherData else { return }
+                DispatchQueue.main.async {
+                    self.currentWeathers += [weatherData]
+                }
+            }
+        }
         
         tableView.delegate = self
         tableView.dataSource = self
