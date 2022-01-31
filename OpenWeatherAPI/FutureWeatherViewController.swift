@@ -7,11 +7,19 @@
 
 import UIKit
 
-class FutureWeatherViewController: UIViewController{
+class FutureWeatherViewController: BaseViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+    }
+    
+    override func configure() {
         title = "미래 날씨"
+    }
+    
+    override func setupConstraints() {
+        
     }
 }

@@ -19,6 +19,7 @@
 		27D735F327A6FBA700300E8C /* APIInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 27D735F227A6FBA700300E8C /* APIInfo.plist */; };
 		27D735F527A6FF5D00300E8C /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D735F427A6FF5D00300E8C /* APIService.swift */; };
 		27D735F727A7009400300E8C /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D735F627A7009400300E8C /* Model.swift */; };
+		27D735F927A81E0900300E8C /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D735F827A81E0900300E8C /* BaseViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		27D735F227A6FBA700300E8C /* APIInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = APIInfo.plist; sourceTree = "<group>"; };
 		27D735F427A6FF5D00300E8C /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		27D735F627A7009400300E8C /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		27D735F827A81E0900300E8C /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 			children = (
 				27D735D427A6DB7300300E8C /* AppDelegate.swift */,
 				27D735D627A6DB7400300E8C /* SceneDelegate.swift */,
+				27D735F827A81E0900300E8C /* BaseViewController.swift */,
 				27D735D827A6DB7400300E8C /* WeatherViewController.swift */,
 				27D735E827A6F0CB00300E8C /* WeatherTableViewCell.swift */,
 				27D735EA27A6F71E00300E8C /* DetailWeatherViewController.swift */,
@@ -161,6 +164,7 @@
 				27D735F127A6FB7100300E8C /* Bundle+Extension.swift in Sources */,
 				27D735F527A6FF5D00300E8C /* APIService.swift in Sources */,
 				27D735EB27A6F71E00300E8C /* DetailWeatherViewController.swift in Sources */,
+				27D735F927A81E0900300E8C /* BaseViewController.swift in Sources */,
 				27D735E927A6F0CB00300E8C /* WeatherTableViewCell.swift in Sources */,
 				27D735D927A6DB7400300E8C /* WeatherViewController.swift in Sources */,
 				27D735D527A6DB7400300E8C /* AppDelegate.swift in Sources */,

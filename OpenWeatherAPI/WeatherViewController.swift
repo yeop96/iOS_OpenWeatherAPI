@@ -7,37 +7,56 @@
 
 import UIKit
 
-class WeatherViewController: UIViewController {
+class WeatherViewController: BaseViewController {
 
     let tableView = UITableView()
     //공주, 광주(전라남도), 구미, 군산, 대구, 대전, 목포, 부산, 서산, 서울, 속초, 수원, 순천, 울산, 익산, 전주, 제주시, 천안, 청주, 춘천
     let cities = ["Gongju", "Jeollanam-do", "Gumi", "Gunsan", "Daegu", "Daejeon", "Mokpo", "Busan", "Seosan", "Seoul", "Sokcho", "Suwon", "Suncheon", "Ulsan", "Iksan", "Jeonju", "Jeju", "Cheonan", "Cheongju", "Chuncheon"]
-    var currentWeathers: [CurrentWeather] = []{
+    
+    var currentWeathers = [CurrentWeather]()
+    var iconImageData: [Data] = []{
         didSet{
             tableView.reloadData()
         }
+    }
+    
+    override func loadView() {
+        super.loadView()
+        cities.forEach {
+            APIService.shared.requestGetWeather(cityName: $0) { weatherData in
+                guard let weatherData = weatherData else { return }
+                DispatchQueue.main.async {
+                    self.currentWeathers += [weatherData]
+                    APIService.shared.requestGetImage(iconID: weatherData.weather.first?.icon ?? "") { data in
+                        DispatchQueue.main.async {
+                            self.iconImageData += [data]
+                        }
+                    }
+                }
+            }
+        }
+
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+    }
+    
+    override func configure() {
         title = "도시별 현재 날씨"
-        view.addSubview(tableView)
-        
-        cities.forEach {
-            APIService.shared.requestGetPost(cityName: $0) { weatherData in
-                guard let weatherData = weatherData else { return }
-                DispatchQueue.main.async {
-                    self.currentWeathers += [weatherData]
-                }
-            }
-        }
         
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(WeatherTableViewCell.self, forCellReuseIdentifier: WeatherTableViewCell.identifier)
         tableView.separatorStyle = .none
+        
+    }
+    
+    override func setupConstraints() {
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(tableView)
+        
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
@@ -52,7 +71,7 @@ class WeatherViewController: UIViewController {
 extension WeatherViewController: UITableViewDelegate, UITableViewDataSource{
    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return currentWeathers.count
+        return iconImageData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -60,20 +79,22 @@ extension WeatherViewController: UITableViewDelegate, UITableViewDataSource{
         guard let cell = tableView.dequeueReusableCell(withIdentifier: WeatherTableViewCell.identifier) as? WeatherTableViewCell else{
             return UITableViewCell()
         }
-        
-        cell.cityNameLabel.text = currentWeathers[indexPath.row].name
-        
-        
+        let weatherData = currentWeathers[indexPath.row]
+        cell.cityNameLabel.text = weatherData.name
+        cell.weatherIconImageView.image = UIImage(data: iconImageData[indexPath.row])
+        cell.nowTemperatureLabel.text = String(Int(weatherData.main.temp) - 273) + "°C"
+        cell.nowHumidityLabel.text = String(weatherData.main.humidity)
         return cell
     }
     
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 80
-//    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
+    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let nextViewController = DetailWeatherViewController()
         nextViewController.weatherData = currentWeathers[indexPath.row]
+        nextViewController.imageData = iconImageData[indexPath.row]
         navigationController?.pushViewController(nextViewController, animated: true)
     }
     
