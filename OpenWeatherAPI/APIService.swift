@@ -58,4 +58,28 @@ class APIService {
         }
     }
     
+    func requestGetForecast(cityName: String, _ completion: @escaping (Forecast?) -> Void) {
+        if let url = URL(string: "https://api.openweathermap.org/data/2.5/forecast?q=\(cityName)&appid=\(apiKey)"){
+            var request = URLRequest.init(url: url)
+            request.httpMethod = "GET"
+            
+            URLSession.shared.dataTask(with: request){ (data, response, error) in
+                
+                if let e = error{
+                    print("e : \(e.localizedDescription)")
+                    return
+                }
+                
+                if let data = data, let forcastData = try?
+                    JSONDecoder().decode(Forecast.self, from: data){
+                    completion(forcastData)
+                    return
+                }
+                completion(nil)
+                
+            }.resume()
+            
+        }
+    }
+    
 }
