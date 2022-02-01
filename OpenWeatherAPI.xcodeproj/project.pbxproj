@@ -74,24 +74,48 @@
 		27D735D327A6DB7300300E8C /* OpenWeatherAPI */ = {
 			isa = PBXGroup;
 			children = (
+				27D7360427A9C10000300E8C /* Utils */,
+				27D7360327A9C0D000300E8C /* CustomView */,
+				27D7360227A9C0A300300E8C /* ViewControllers */,
 				27D735D427A6DB7300300E8C /* AppDelegate.swift */,
 				27D735D627A6DB7400300E8C /* SceneDelegate.swift */,
-				27D735F827A81E0900300E8C /* BaseViewController.swift */,
-				27D735D827A6DB7400300E8C /* WeatherViewController.swift */,
-				27D735E827A6F0CB00300E8C /* WeatherTableViewCell.swift */,
-				27D735EA27A6F71E00300E8C /* DetailWeatherViewController.swift */,
-				27D735EC27A6F79C00300E8C /* FutureWeatherViewController.swift */,
 				27D735F627A7009400300E8C /* Model.swift */,
-				27D735F027A6FB7100300E8C /* Bundle+Extension.swift */,
 				27D735F427A6FF5D00300E8C /* APIService.swift */,
-				27D735FE27A9929600300E8C /* Constants.swift */,
-				27D7360027A9A6C000300E8C /* LineGraphView.swift */,
+				27D735F027A6FB7100300E8C /* Bundle+Extension.swift */,
 				27D735DD27A6DB7600300E8C /* Assets.xcassets */,
 				27D735DF27A6DB7600300E8C /* LaunchScreen.storyboard */,
 				27D735E227A6DB7600300E8C /* Info.plist */,
 				27D735F227A6FBA700300E8C /* APIInfo.plist */,
 			);
 			path = OpenWeatherAPI;
+			sourceTree = "<group>";
+		};
+		27D7360227A9C0A300300E8C /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				27D735F827A81E0900300E8C /* BaseViewController.swift */,
+				27D735D827A6DB7400300E8C /* WeatherViewController.swift */,
+				27D735E827A6F0CB00300E8C /* WeatherTableViewCell.swift */,
+				27D735EA27A6F71E00300E8C /* DetailWeatherViewController.swift */,
+				27D735EC27A6F79C00300E8C /* FutureWeatherViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		27D7360327A9C0D000300E8C /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				27D7360027A9A6C000300E8C /* LineGraphView.swift */,
+			);
+			path = CustomView;
+			sourceTree = "<group>";
+		};
+		27D7360427A9C10000300E8C /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				27D735FE27A9929600300E8C /* Constants.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
