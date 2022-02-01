@@ -27,6 +27,8 @@ class WeatherTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        self.selectionStyle = .none
+        
         contentView.addSubview(stackView)
         [stackView, cityNameLabel, weatherIconImageView, nowTemperatureLabel, nowHumidityLabel].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
@@ -38,8 +40,8 @@ class WeatherTableViewCell: UITableViewCell {
         
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 12),
-            stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
-            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
+            stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
             stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -12),
             
             weatherIconImageView.widthAnchor.constraint(equalToConstant: 30),

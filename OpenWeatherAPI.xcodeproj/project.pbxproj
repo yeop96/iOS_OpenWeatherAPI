@@ -20,6 +20,8 @@
 		27D735F527A6FF5D00300E8C /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D735F427A6FF5D00300E8C /* APIService.swift */; };
 		27D735F727A7009400300E8C /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D735F627A7009400300E8C /* Model.swift */; };
 		27D735F927A81E0900300E8C /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D735F827A81E0900300E8C /* BaseViewController.swift */; };
+		27D735FF27A9929600300E8C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D735FE27A9929600300E8C /* Constants.swift */; };
+		27D7360127A9A6C000300E8C /* LineGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D7360027A9A6C000300E8C /* LineGraphView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		27D735F427A6FF5D00300E8C /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		27D735F627A7009400300E8C /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		27D735F827A81E0900300E8C /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		27D735FE27A9929600300E8C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		27D7360027A9A6C000300E8C /* LineGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineGraphView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,13 +81,15 @@
 				27D735E827A6F0CB00300E8C /* WeatherTableViewCell.swift */,
 				27D735EA27A6F71E00300E8C /* DetailWeatherViewController.swift */,
 				27D735EC27A6F79C00300E8C /* FutureWeatherViewController.swift */,
+				27D735F627A7009400300E8C /* Model.swift */,
+				27D735F027A6FB7100300E8C /* Bundle+Extension.swift */,
+				27D735F427A6FF5D00300E8C /* APIService.swift */,
+				27D735FE27A9929600300E8C /* Constants.swift */,
+				27D7360027A9A6C000300E8C /* LineGraphView.swift */,
 				27D735DD27A6DB7600300E8C /* Assets.xcassets */,
 				27D735DF27A6DB7600300E8C /* LaunchScreen.storyboard */,
 				27D735E227A6DB7600300E8C /* Info.plist */,
 				27D735F227A6FBA700300E8C /* APIInfo.plist */,
-				27D735F027A6FB7100300E8C /* Bundle+Extension.swift */,
-				27D735F427A6FF5D00300E8C /* APIService.swift */,
-				27D735F627A7009400300E8C /* Model.swift */,
 			);
 			path = OpenWeatherAPI;
 			sourceTree = "<group>";
@@ -160,6 +166,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				27D735F727A7009400300E8C /* Model.swift in Sources */,
+				27D735FF27A9929600300E8C /* Constants.swift in Sources */,
 				27D735ED27A6F79C00300E8C /* FutureWeatherViewController.swift in Sources */,
 				27D735F127A6FB7100300E8C /* Bundle+Extension.swift in Sources */,
 				27D735F527A6FF5D00300E8C /* APIService.swift in Sources */,
@@ -169,6 +176,7 @@
 				27D735D927A6DB7400300E8C /* WeatherViewController.swift in Sources */,
 				27D735D527A6DB7400300E8C /* AppDelegate.swift in Sources */,
 				27D735D727A6DB7400300E8C /* SceneDelegate.swift in Sources */,
+				27D7360127A9A6C000300E8C /* LineGraphView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

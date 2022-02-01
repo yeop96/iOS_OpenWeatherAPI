@@ -22,6 +22,7 @@ class DetailWeatherViewController: BaseViewController{
     let futureWeatherButton = UIButton()
     var weatherData: CurrentWeather?
     var imageData: Data?
+    var forcastData: Forecast?
     
     let stackView: UIStackView = {
         let stackView = UIStackView()
@@ -34,7 +35,7 @@ class DetailWeatherViewController: BaseViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
     }
     
     override func configure() {
@@ -43,26 +44,26 @@ class DetailWeatherViewController: BaseViewController{
         guard let weatherData = weatherData else { return }
         
         cityNameLabel.textAlignment = .center
-        cityNameLabel.text = weatherData.name
+        cityNameLabel.text = "\(Constants.citiesDitcionary[weatherData.name] ?? "") (\(weatherData.name))"
         
         guard let imageData = imageData else { return }
         weatherImageView.image = UIImage(data: imageData)
         
-        nowTemperatureLabel.text = String(Int(weatherData.main.temp) - 273) + "°C"
+        nowTemperatureLabel.text = "현재기온 : " + String(Int(weatherData.main.temp) - 273) + "°C"
         
-        nowFeelTemperatureLabel.text = String(Int(weatherData.main.feelsLike) - 273) + "°C"
+        nowFeelTemperatureLabel.text = "체감기온 : " + String(Int(weatherData.main.feelsLike) - 273) + "°C"
         
-        nowHumidityLabel.text = String(weatherData.main.humidity)
+        nowHumidityLabel.text = "현재습도 : " + String(weatherData.main.humidity)
         
-        minTemperatureLabel.text = String(Int(weatherData.main.tempMin) - 273) + "°C"
+        minTemperatureLabel.text = "최저기온 : " + String(Int(weatherData.main.tempMin) - 273) + "°C"
         
-        maxTemperatureLabel.text = String(Int(weatherData.main.tempMax) - 273) + "°C"
+        maxTemperatureLabel.text = "최고기온 : " + String(Int(weatherData.main.tempMax) - 273) + "°C"
         
-        pressLabel.text = String(weatherData.main.pressure)
+        pressLabel.text = "기압 : " + String(weatherData.main.pressure)
         
-        windLabel.text = String(weatherData.wind.speed)
+        windLabel.text = "풍속 : " + String(weatherData.wind.speed)
         
-        descriptionLabel.text = weatherData.weather.first?.weatherDescription
+        descriptionLabel.text = "설명 : " + weatherData.weather.first!.weatherDescription
         
         
         futureWeatherButton.backgroundColor = .label
@@ -100,6 +101,7 @@ class DetailWeatherViewController: BaseViewController{
     
     @objc func futureWeatherButtonClicked(){
         let nextViewController = FutureWeatherViewController()
+        nextViewController.forcastData = self.forcastData
         navigationController?.pushViewController(nextViewController, animated: true)
     }
 }

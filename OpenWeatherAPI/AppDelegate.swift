@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UILabel.appearance().textColor = .label
         UIView.appearance().backgroundColor = .systemBackground
         UITableView.appearance().backgroundColor = .systemBackground
+        UITableViewCell.appearance().backgroundColor = .systemBackground
         
         return true
     }
